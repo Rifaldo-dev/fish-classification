@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klasifikasi Ikan</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐟 Klasifikasi Ikan</h1>
+      <p>Upload gambar ikan untuk mengetahui jenisnya</p>
+    </header>
+
+    <main>
+      <!-- Upload Area -->
+      <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" accept=".jpg,.jpeg,.png" hidden>
+        <div class="upload-content" id="uploadContent">
+          <span class="upload-icon">📁</span>
+          <p>Klik atau drag & drop gambar di sini</p>
+          <small>Format: JPG, PNG</small>
+        </div>
+        <img id="previewImg" src="" alt="Preview" hidden>
+      </div>
+
+      <button class="btn-predict" id="btnPredict" disabled>Identifikasi Ikan</button>
+
+      <!-- Hasil -->
+      <div class="result-box" id="resultBox" hidden>
+        <h2>Hasil Identifikasi</h2>
+        <div class="result-main">
+          <span class="result-label" id="resultLabel">-</span>
+          <span class="result-confidence" id="resultConfidence">-</span>
+        </div>
+        <div class="top3" id="top3List"></div>
+        <button class="btn-reset" id="btnReset">Upload Gambar Lain</button>
+      </div>
+
+      <!-- Loading -->
+      <div class="loading" id="loading" hidden>
+        <div class="spinner"></div>
+        <p>Menganalisis gambar...</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

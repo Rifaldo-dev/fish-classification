@@ -7,7 +7,7 @@
 - [x] Preprocessing - split train/val/test (70/20/10), augmentasi, normalisasi
 - [x] Training YOLOv8 - train model klasifikasi, monitoring, simpan model (top1_acc: 93.4%, 50 epochs)
 - [x] Evaluasi - confusion matrix, classification report (test accuracy: 100%, 48 gambar)
-- [ ] Dashboard - Flask, upload gambar, tampilkan hasil klasifikasi
+- [x] Dashboard - Flask, upload gambar, tampilkan hasil klasifikasi & top 3 prediksi
 
 ---
 
