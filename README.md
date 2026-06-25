@@ -5,7 +5,7 @@
 - [x] Pengumpulan dataset - kumpul gambar, rename, kompres 224x224
 - [x] Pengelompokan dataset - klasifikasi laut & tawar, struktur folder
 - [x] Preprocessing - split train/val/test (70/20/10), augmentasi, normalisasi
-- [ ] Training YOLOv8 - train model klasifikasi, monitoring, simpan model
+- [x] Training YOLOv8 - train model klasifikasi, monitoring, simpan model (top1_acc: 93.4%, 50 epochs)
 - [ ] Evaluasi - confusion matrix, classification report
 - [ ] Dashboard - Flask, upload gambar, tampilkan hasil klasifikasi
 
