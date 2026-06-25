@@ -1,0 +1,9 @@
+dashboard/uploads/
+model/runs/
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.h5
+*.keras
+.env
