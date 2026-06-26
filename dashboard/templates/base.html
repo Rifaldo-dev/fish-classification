@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FishID | {% block title %}{% endblock %}</title>
+  <link rel="icon" type="image/png" href="/static/img/icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Topbar -->
+  <nav class="topbar">
+    <div class="d-flex align-items-center gap-3">
+      <button class="sidebar-toggle" id="sidebarToggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="topbar-brand">
+        <img src="/static/img/icon.png" alt="FishID" class="topbar-logo">
+        <span class="fw-bold">FishID</span>
+      </div>
+    </div>
+    <div class="topbar-right text-muted small">
+      <i class="fa-solid fa-circle-dot text-success me-1"></i> Model aktif
+      <span class="mx-2">|</span>
+      <i class="fa-solid fa-user me-1"></i> {{ session.get('user', '') }}
+      <a href="/logout" class="ms-3 btn btn-sm btn-outline-secondary py-0 px-2">
+        <i class="fa-solid fa-right-from-bracket me-1"></i>Logout
+      </a>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul class="sidebar-menu">
+        <li class="menu-header">MENU</li>
+        <li>
+          <a href="/dashboard" class="menu-item {% if active == 'dashboard' %}active{% endif %}" data-title="Dashboard">
+            <i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="/identifikasi" class="menu-item {% if active == 'identifikasi' %}active{% endif %}" data-title="Identifikasi">
+            <i class="fa-solid fa-magnifying-glass"></i> <span>Identifikasi</span>
+          </a>
+        </li>
+        <li>
+          <a href="/riwayat" class="menu-item {% if active == 'riwayat' %}active{% endif %}" data-title="Riwayat">
+            <i class="fa-solid fa-clock-rotate-left"></i> <span>Riwayat</span>
+          </a>
+        </li>
+        <li>
+          <a href="/harga" class="menu-item {% if active == 'harga' %}active{% endif %}" data-title="Harga Ikan">
+            <i class="fa-solid fa-tags"></i> <span>Harga Ikan</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h5 class="mb-0">{% block page_title %}{% endblock %}</h5>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/dashboard"><i class="fa-solid fa-house"></i></a></li>
+            <li class="breadcrumb-item active">{% block breadcrumb %}{% endblock %}</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="page-body">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("sidebarToggle").addEventListener("click", function() {
+      document.querySelector(".sidebar").classList.toggle("collapsed");
+      document.querySelector(".content-wrapper").classList.toggle("expanded");
+    });
+  </script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

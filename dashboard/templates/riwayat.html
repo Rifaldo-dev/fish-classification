@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Riwayat{% endblock %}
+{% block page_title %}Riwayat Identifikasi{% endblock %}
+{% block breadcrumb %}Riwayat{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h6 class="card-title mb-0">Riwayat Identifikasi</h6>
+    <span class="badge bg-secondary">{{ rows|length }} data</span>
+  </div>
+  <div class="card-body p-0">
+    {% if rows %}
+    <table class="table table-sm table-hover mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Nama Ikan</th>
+          <th>Jenis</th>
+          <th>Confidence</th>
+          <th>Waktu</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td class="text-muted">{{ loop.index }}</td>
+          <td class="fw-medium text-capitalize">{{ r.nama_ikan }}</td>
+          <td>
+            <span class="badge {{ 'bg-primary-soft text-primary' if 'Laut' in r.jenis_ikan else 'bg-success-soft text-success' }}">
+              {{ r.jenis_ikan }}
+            </span>
+          </td>
+          <td>{{ r.confidence }}%</td>
+          <td class="text-muted small">{{ r.created_at.strftime('%d %b %Y, %H:%M') }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="text-center text-muted py-5">
+      <i class="fa-solid fa-inbox fa-2x mb-2 opacity-25"></i>
+      <p class="mb-0 small">Belum ada riwayat identifikasi</p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

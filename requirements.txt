@@ -1,0 +1,7 @@
+flask==3.0.0
+ultralytics==8.4.12
+pymysql==2.2.8
+python-dotenv==1.0.0
+pillow==11.2.1
+flask-login==0.6.3
+scikit-learn

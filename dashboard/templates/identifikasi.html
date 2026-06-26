@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Identifikasi{% endblock %}
+{% block page_title %}Identifikasi Ikan{% endblock %}
+{% block breadcrumb %}Identifikasi{% endblock %}
+
+{% block content %}
+<div class="row g-3">
+  <!-- Upload -->
+  <div class="col-lg-5">
+    <div class="card shadow-sm">
+      <div class="card-header">
+        <h6 class="card-title mb-0">Upload Gambar</h6>
+      </div>
+      <div class="card-body">
+        <div class="upload-box" id="uploadBox">
+          <input type="file" id="fileInput" accept=".jpg,.jpeg,.png" hidden>
+          <div id="uploadContent">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <p>Klik atau drag & drop</p>
+            <small>JPG, PNG</small>
+          </div>
+          <img id="previewImg" src="" alt="Preview" hidden>
+        </div>
+        <div class="d-grid gap-2 mt-3">
+          <button class="btn btn-primary" id="btnPredict" disabled>
+            <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Identifikasi
+          </button>
+          <button class="btn btn-outline-secondary btn-sm" id="btnReset" hidden>
+            <i class="fa-solid fa-rotate-left me-1"></i> Ganti Gambar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hasil -->
+  <div class="col-lg-7">
+    <!-- Placeholder -->
+    <div class="card shadow-sm h-100" id="emptyBox">
+      <div class="card-body d-flex align-items-center justify-content-center text-muted">
+        <div class="text-center">
+          <i class="fa-solid fa-fish fa-2x mb-2 opacity-25"></i>
+          <p class="mb-0 small">Hasil identifikasi akan muncul di sini</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hasil -->
+    <div class="card shadow-sm" id="resultBox" hidden>
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <h6 class="card-title mb-0">Hasil Identifikasi</h6>
+        <span class="result-type badge" id="resultType"></span>
+      </div>
+      <div class="card-body">
+        <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
+          <div class="result-fish-icon">
+            <i class="fa-solid fa-fish-fins"></i>
+          </div>
+          <div>
+            <div class="result-name" id="resultLabel">-</div>
+            <div class="text-muted small" id="resultConfidence">-</div>
+            <div class="text-success small fw-medium mt-1" id="resultHarga"></div>
+          </div>
+        </div>
+        <p class="text-muted small text-uppercase fw-semibold mb-2">Top 3 Prediksi</p>
+        <div id="top3List"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/main.js"></script>
+{% endblock %}
